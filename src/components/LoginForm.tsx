@@ -11,6 +11,7 @@ import {
 import GoogleIcon from "@mui/icons-material/Google";
 import { useState } from "react";
 import axios from "axios";
+import { redirect } from "react-router-dom";
 
 export default function LoginForm({ changeState }: { changeState: any }) {
   const [email, setEmail] = useState<string | undefined>(undefined);
@@ -42,6 +43,9 @@ export default function LoginForm({ changeState }: { changeState: any }) {
       password,
     });
     if (response.status === 200) {
+      console.log(response);
+
+      // redirect("/main");          
     } else alert(response.data);
   };
 
@@ -56,7 +60,7 @@ export default function LoginForm({ changeState }: { changeState: any }) {
         }}
       >
         <img
-          src="/logo.PNG"
+          src="/logo.png"
           alt="Logo"
           style={{ width: 120, marginBottom: 24 }}
         />
@@ -73,6 +77,13 @@ export default function LoginForm({ changeState }: { changeState: any }) {
             </Typography>
           </div>
           <Button
+          onClick={() => {
+            window.open(
+              'http://localhost:5000/auth/google/callback',
+              'Google Auth',
+              'width=500,height=600,left=500,top=200'
+            );
+          }}
             fullWidth
             variant="outlined"
             startIcon={<GoogleIcon />}

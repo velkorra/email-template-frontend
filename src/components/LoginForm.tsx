@@ -9,15 +9,36 @@ import {
   Link,
 } from "@mui/material";
 import GoogleIcon from "@mui/icons-material/Google";
-import { useState } from "react";
-import axios from "axios";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { authService } from "../api/services/AuthService";
+import { API_CONFIG } from "../config/api.config";
 
 export default function LoginForm({ changeState }: { changeState: any }) {
-  const [email, setEmail] = useState<string | undefined>(undefined);
-  const [password, setPassword] = useState<string | undefined>(undefined);
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
+  const { login } = useAuth();
+  const navigate = useNavigate();
+  useEffect(() => {
+    const handleMessage = (event: MessageEvent) => {
+      console.log(event.data);
+      if (event.data === "success") {
+        console.log(navigate);
+        console.log(event.data + 1);
 
+        window.location.reload();
+      }
+    };
+
+    window.addEventListener("message", handleMessage);
+
+    return () => {
+      window.removeEventListener("message", handleMessage);
+    };
+  }, [navigate]);
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setEmail(value);
@@ -37,16 +58,17 @@ export default function LoginForm({ changeState }: { changeState: any }) {
     if (!email || !password) return;
     console.log("Email:", email);
     console.log("Password:", password);
-    const response = await axios.post("http://localhost:5000/users/login", {
-      email,
-      password,
-    });
-    if (response.status === 200) {
-    } else alert(response.data);
+    if (await login(email, password)) {
+      const response = await authService.account();
+      console.log(response);
+      navigate("/main");
+    } else {
+      alert("Неверный email или пароль");
+    }
   };
 
   return (
-    <Container maxWidth="xs" sx={{ paddingBottom: "30px"}}>
+    <Container maxWidth="xs" sx={{ paddingBottom: "30px" }}>
       <Box
         sx={{
           mt: 8,
@@ -56,7 +78,7 @@ export default function LoginForm({ changeState }: { changeState: any }) {
         }}
       >
         <img
-          src="/logo.PNG"
+          src="/logo.png"
           alt="Logo"
           style={{ width: 120, marginBottom: 24 }}
         />
@@ -67,12 +89,19 @@ export default function LoginForm({ changeState }: { changeState: any }) {
           <Typography variant="h5" sx={{ mb: 2 }}>
             Добро пожаловать!
           </Typography>
-          <div onClick={()=>changeState("register")}>
+          <div onClick={() => changeState("register")}>
             <Typography variant="body2" sx={{ mb: 3 }}>
               Нет аккаунта? <Link>Зарегистрироваться</Link>
             </Typography>
           </div>
           <Button
+            onClick={() => {
+              window.open(
+                `${API_CONFIG.baseURL}/auth/google`,
+                "Google Auth",
+                "width=500,height=600,left=500,top=200"
+              );
+            }}
             fullWidth
             variant="outlined"
             startIcon={<GoogleIcon />}

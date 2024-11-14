@@ -59,6 +59,7 @@ export default function RegisterForm({ changeState }: { changeState: any }) {
         }
       );
       if (response.status === 201) {
+
         console.log("Регистрация успешна");
       }
     } catch (error) {
@@ -77,7 +78,7 @@ export default function RegisterForm({ changeState }: { changeState: any }) {
         }}
       >
         <img
-          src="/logo.PNG"
+          src="/logo.png"
           alt="Logo"
           style={{ width: 120, marginBottom: 24 }}
         />

@@ -1,0 +1,115 @@
+@import url("./variables.css");
+@import url("./components/styles/index.css");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body,
+html {
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+header,
+footer,
+section,
+article,
+aside,
+nav,
+main,
+figure,
+figcaption,
+details,
+summary,
+button,
+time,
+mark,
+address,
+dialog,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+nav ul,
+nav ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+mark,
+time,
+address {
+  color: inherit;
+  font-style: normal;
+  background: none;
+}
+
+details {
+  cursor: pointer;
+}
+
+summary {
+  display: list-item;
+  cursor: pointer;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+figure {
+  max-width: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}

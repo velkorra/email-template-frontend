@@ -1,0 +1,37 @@
+.content {
+  height: 93%;
+  display: flex;
+}
+.header {
+  display: flex;
+  height: 7%;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--header);
+  color: white;
+  padding: 20px 40px;
+}
+
+.page {
+  width: calc(100vw - 250px);
+  height: 100%;
+  padding: 10px 30px;
+  scrollbar-gutter: stable;
+  overflow-y: auto;
+  margin-right: 20px;
+}
+.main {
+  flex: 1;
+  padding: 20px;
+}
+
+.footer {
+  background-color: var(--header);
+  text-align: center;
+  padding: 10px;
+}
+
+.container {
+  height: 100vh;
+  overflow: hidden;
+}

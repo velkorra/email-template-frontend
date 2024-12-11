@@ -54,8 +54,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     [updateToken, setUser]
   );
 
-  const logout = useCallback(() => {
+  const logout = useCallback(async () => {
+    await authService.logout();
     setState(initialState);
+    authStore.removeToken();
   }, []);
 
   const checkAuth = useCallback(async () => {

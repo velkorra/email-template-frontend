@@ -1,41 +1,37 @@
-import { createTheme, CssBaseline } from "@mui/material";
+import React from "react";
 import "./App.css";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, createBrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import MainPage from "./pages/MainPage";
 import { useAuth } from "./context/AuthContext";
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#1976d2",
-    },
-  },
-});
-function App() {
-  const { isAuthenticated, isLoading} = useAuth();
+import Layout from "./layout/Layout";
+import Main from "./layout/Main";
+import Library from "./layout/Library";
+import Settings from "./layout/Settings";
+import ConstructorPage from "./components/ConstructorPage";
+
+const App: React.FC = () => {
+  const { isAuthenticated, isLoading } = useAuth();
   if (isLoading) {
     return null;
   }
   return (
-    <>
-      <CssBaseline>
-        <BrowserRouter>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                isAuthenticated ? <Navigate to="/main" /> : <LoginPage />
-              }
-            />
-            <Route
-              path="/main"
-              element={isAuthenticated ? <MainPage /> : <Navigate to="/" />}
-            />
-          </Routes>
-        </BrowserRouter>
-      </CssBaseline>
-    </>
+    <Routes>
+      <Route
+        path="/"
+        element={<Layout />}
+      >
+        <Route index element={<Main />} />
+        <Route path="/library" element={<Library />} />
+        <Route path="/settings" element={<Settings />} />
+      </Route>
+
+      <Route path="/login" element={<LoginPage />} />
+      
+      <Route path="/constructor" element={<ConstructorPage />} />
+
+    </Routes>
   );
-}
+};
 
 export default App;

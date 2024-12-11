@@ -8,14 +8,18 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import { AuthProvider } from "./context/AuthContext";
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
-);
+import { BrowserRouter } from "react-router-dom";
+import { TemplateProvider } from "./context/TemplateContext";
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
   <React.StrictMode>
-    <AuthProvider>
-      <App />
-    </AuthProvider>
+    <BrowserRouter>
+      <AuthProvider>
+        <TemplateProvider>
+          <App />
+        </TemplateProvider>
+      </AuthProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

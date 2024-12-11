@@ -11,5 +11,9 @@ export const authService = {
   account: async () => {
     const response = await apiClient.get<LoginResponseDto>(ENDPOINTS.AUTH.ACCCOUNT);
     return response.data;
+  },
+
+  logout: async () => {
+    await apiClient.post(ENDPOINTS.AUTH.LOGOUT);
   }
 };

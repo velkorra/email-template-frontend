@@ -26,9 +26,6 @@ export default function LoginForm({ changeState }: { changeState: any }) {
     const handleMessage = (event: MessageEvent) => {
       console.log(event.data);
       if (event.data === "success") {
-        console.log(navigate);
-        console.log(event.data + 1);
-
         window.location.reload();
       }
     };

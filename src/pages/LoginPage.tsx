@@ -3,9 +3,15 @@ import { Box, Grid2 as Grid } from "@mui/material";
 import { useState } from "react";
 import LoginForm from "../components/LoginForm";
 import RegisterForm from "../components/RegistrationFrom";
+import { useAuth } from "../context/AuthContext";
 
 export default function LoginPage() {
   const [state, setState] = useState("login");
+  const {isAuthenticated} = useAuth();
+
+  if(isAuthenticated){
+    window.location.href = "/";
+  }
 
   return (
     <Box

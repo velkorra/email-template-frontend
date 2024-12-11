@@ -1,0 +1,60 @@
+.header {
+  display: flex;
+  height: 7%;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--header);
+  color: white;
+  padding: 20px 40px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 0;
+  color: white;
+  text-decoration: none;
+}
+
+
+.account-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logout-button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #e63939;
+}
+
+.auth-links {
+  display: flex;
+  gap: 15px;
+}
+
+.auth-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.auth-link:hover {
+  color: #ddd;
+}

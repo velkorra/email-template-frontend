@@ -13,7 +13,7 @@ const Header: React.FC = () => {
       <div className="account-section">
         {isAuth ? (
           <div className="user-info">
-            <span>Hi, {user?.email || "User"}!</span>
+            <span>Привет, Антон!</span>
             <button
               className="logout-button"
               onClick={async () => {
@@ -21,7 +21,7 @@ const Header: React.FC = () => {
                 await logout();
               }}
             >
-              Logout
+              Выйти
             </button>
           </div>
         ) : (

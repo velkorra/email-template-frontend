@@ -11,9 +11,7 @@ const initialState: AuthState = {
 };
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
+export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [state, setState] = useState<AuthState>(initialState);
 
   const updateToken = useCallback((newToken: string) => {
@@ -39,7 +37,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 
         const { token, user } = await authService.login({ email, password });
         console.log(token, user);
-        
+
         authStore.setToken(token);
         updateToken(token);
         setUser(user);
@@ -74,13 +72,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 
   useEffect(() => {
     checkAuth();
-  }, [])
+  }, []);
   const value = {
     ...state,
     login,
     logout,
     updateToken,
-    checkAuth
+    checkAuth,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

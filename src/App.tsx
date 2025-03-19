@@ -16,19 +16,15 @@ const App: React.FC = () => {
   }
   return (
     <Routes>
-      <Route
-        path="/"
-        element={<Layout />}
-      >
+      <Route path="/" element={<Layout />}>
         <Route index element={<Main />} />
         <Route path="/library" element={<Library />} />
         <Route path="/settings" element={<Settings />} />
       </Route>
 
       <Route path="/login" element={<LoginPage />} />
-      
-      <Route path="/constructor" element={<ConstructorPage />} />
 
+      <Route path="/constructor" element={<ConstructorPage />} />
     </Routes>
   );
 };

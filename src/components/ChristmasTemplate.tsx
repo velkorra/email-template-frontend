@@ -42,9 +42,9 @@ const ChristmasTemplate: React.FC = () => {
           overflow: "hidden", // Ensures the image fits within the Paper
         }}
       >
-        <img 
-          src="/mc.png" 
-          alt="Рождественская елка" 
+        <img
+          src="/mc.png"
+          alt="Рождественская елка"
           style={{
             width: "100%",
             height: "100%",

@@ -7,9 +7,9 @@ import { useAuth } from "../context/AuthContext";
 
 export default function LoginPage() {
   const [state, setState] = useState("login");
-  const {isAuthenticated} = useAuth();
+  const { isAuthenticated } = useAuth();
 
-  if(isAuthenticated){
+  if (isAuthenticated) {
     window.location.href = "/";
   }
 

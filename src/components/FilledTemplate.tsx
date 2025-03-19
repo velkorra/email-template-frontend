@@ -20,7 +20,7 @@ const FilledTemplate: React.FC = () => {
         sx={{
           padding: 2,
           backgroundColor: "#e3f2fd",
-          borderRadius
+          borderRadius,
         }}
       >
         <Typography variant="h4" align="center">
@@ -33,7 +33,7 @@ const FilledTemplate: React.FC = () => {
         elevation={2}
         sx={{
           padding: 2,
-          borderRadius
+          borderRadius,
         }}
       >
         <Typography>
@@ -50,7 +50,7 @@ const FilledTemplate: React.FC = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          borderRadius
+          borderRadius,
         }}
       >
         <Typography color="textSecondary">[Здесь будет ваше изображение]</Typography>
@@ -66,7 +66,7 @@ const FilledTemplate: React.FC = () => {
             justifyContent: "center",
             alignItems: "center",
             backgroundColor: "#c8e6c9",
-            borderRadius
+            borderRadius,
           }}
         >
           <Typography>Кнопка 1</Typography>
@@ -80,7 +80,7 @@ const FilledTemplate: React.FC = () => {
             justifyContent: "center",
             alignItems: "center",
             backgroundColor: "#ffcdd2",
-            borderRadius
+            borderRadius,
           }}
         >
           <Typography>Кнопка 2</Typography>

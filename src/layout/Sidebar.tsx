@@ -1,4 +1,3 @@
-import SidebarButton from "./components/SidebarButton";
 import SidebarLinkButton from "./components/SidebarLinkButton";
 
 const Sidebar: React.FC = () => {

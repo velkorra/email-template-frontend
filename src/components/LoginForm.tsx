@@ -1,13 +1,4 @@
-import {
-  Container,
-  Paper,
-  Typography,
-  TextField,
-  Button,
-  Box,
-  Divider,
-  Link,
-} from "@mui/material";
+import { Container, Paper, Typography, TextField, Button, Box, Divider, Link } from "@mui/material";
 import GoogleIcon from "@mui/icons-material/Google";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -74,15 +65,8 @@ export default function LoginForm({ changeState }: { changeState: any }) {
           alignItems: "center",
         }}
       >
-        <img
-          src="/logo.png"
-          alt="Logo"
-          style={{ width: 120, marginBottom: 24 }}
-        />
-        <Paper
-          elevation={3}
-          sx={{ p: 4, width: "100%", borderRadius: 2, textAlign: "center" }}
-        >
+        <img src="/logo.png" alt="Logo" style={{ width: 120, marginBottom: 24 }} />
+        <Paper elevation={3} sx={{ p: 4, width: "100%", borderRadius: 2, textAlign: "center" }}>
           <Typography variant="h5" sx={{ mb: 2 }}>
             Добро пожаловать!
           </Typography>
@@ -93,11 +77,7 @@ export default function LoginForm({ changeState }: { changeState: any }) {
           </div>
           <Button
             onClick={() => {
-              window.open(
-                `${API_CONFIG.baseURL}/auth/google`,
-                "Google Auth",
-                "width=500,height=600,left=500,top=200"
-              );
+              window.open(`${API_CONFIG.baseURL}/auth/google`, "Google Auth", "width=500,height=600,left=500,top=200");
             }}
             fullWidth
             variant="outlined"
@@ -105,6 +85,17 @@ export default function LoginForm({ changeState }: { changeState: any }) {
             sx={{ mb: 2 }}
           >
             Войти с Google
+          </Button>
+          <Button
+            onClick={() => {
+              window.open(`${API_CONFIG.baseURL}/auth/google`, "Google Auth", "width=500,height=600,left=500,top=200");
+            }}
+            fullWidth
+            variant="outlined"
+            startIcon={<img src="/icons/yandex.png" alt="Yandex Icon" style={{ width: 24, height: 24 }} />}
+            sx={{ mb: 2 }}
+          >
+            Войти с Yandex
           </Button>
           <Divider sx={{ my: 2 }}>или</Divider>
           <TextField
@@ -131,13 +122,7 @@ export default function LoginForm({ changeState }: { changeState: any }) {
           <Box sx={{ display: "flex", justifyContent: "center", mb: 2 }}>
             <Link href="/forgot-password">Забыли пароль?</Link>
           </Box>
-          <Button
-            fullWidth
-            variant="contained"
-            color="primary"
-            size="medium"
-            onClick={handleSubmit}
-          >
+          <Button fullWidth variant="contained" color="primary" size="medium" onClick={handleSubmit}>
             Войти
           </Button>
         </Paper>

@@ -8,6 +8,7 @@ import Main from "./layout/Main";
 import Library from "./layout/Library";
 import Settings from "./layout/Settings";
 import ConstructorPage from "./components/ConstructorPage";
+import Projects from "./layout/Projects";
 
 const App: React.FC = () => {
   const { isLoading } = useAuth();
@@ -20,6 +21,7 @@ const App: React.FC = () => {
         <Route index element={<Main />} />
         <Route path="/library" element={<Library />} />
         <Route path="/settings" element={<Settings />} />
+        <Route path="/projects" element={<Projects />} />
       </Route>
 
       <Route path="/login" element={<LoginPage />} />
